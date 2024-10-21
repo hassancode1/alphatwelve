@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!--=============== CHARTS ===============-->
+   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+      <!-- Swiper JS -->
+   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js"></script>
+
+
+    <!--=============== REMIXICONS ===============-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css">
+
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <title>Alpha Twelve</title>
+</head>
+<body>
+    <!--=============== HEADER ===============-->
+    <header class="header" id="header">
+        <div class="header__container">
+            <div class="header__logo">
+                <img src="./assets/img/Logo.svg" alt="Logo"/>
+            </div>
+            
+            <button class="header__toggle" id="header-toggle">
+                <img src="./assets/img/darkhamburger.png" class="header__icon header__hamburger darkhamburger" alt="Menu"/>
+                <img src="./assets/img/hamburger.svg" class="header__icon header__hamburger lighthamburger" alt="Menu"/>
+                <img src="./assets/img/close-light.png" alt="Close" class="header__icon header__close close-light"/>
+            </button>
+        </div>
+    </header>
+
+    <!--=============== SIDEBAR ===============-->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar__logo">
+            <img src="./assets/img/Logo.svg" alt="Logo"/>
+        </div>
+        <div class="sidebar__container">
+            <div class="sidebar__content">
+                <div class="sidebar__list">
+                    <a href="#" class="sidebar__link active-link">
+                        <i class="ri-home-line"></i>
+                        <span>Home</span>
+                    </a>            
+                    <a href="#" class="sidebar__link">
+                        <i class="ri-calendar-event-line"></i>
+                        <span>Events</span>
+                    </a>
+                    <a href="#" class="sidebar__link">
+                        <i class="ri-speak-line"></i>
+                        <span>Speaker</span>
+                    </a>
+                    <a href="#" class="sidebar__link">
+                        <i class="ri-file-list-3-line"></i>
+                        <span>Reports</span>
+                    </a>
+                    <a href="#" class="sidebar__link">
+                        <i class="ri-notification-line"></i>
+                        <span class="notification__container">
+                            Notifications
+                            <span class="notification__number">3</span>
+                        </span>
+                    </a>
+                    <a href="#" class="sidebar__link">
+                        <i class="ri-question-answer-line"></i>
+                        <span>Messages</span>
+                    </a>
+                    <a href="#" class="sidebar__link">
+                        <i class="ri-settings-2-line"></i>
+                        <span>Settings</span>
+                    </a>
+                    <a href="#" class="sidebar__link none"  id="collapse-sidebar">
+                        <i class="ri-arrow-left-s-line"></i>
+                        <span>Collapse</span>
+                    </a>
+                    <button class="sidebar__link sidebar__theme" >
+                        <label class="switch" >
+                            <input type="checkbox" id="theme-button">
+                            <span class="slider round"></span>
+                        </label>
+                        <span class="sider__dark">Dark Mode</span>
+                    </button>
+                    <a href="#" class="sidebar__link sidebar__profile none">
+                        <img src="assets/img/Avatar.svg" alt="avatar">
+                        <span>
+                            <h2 class="profile-title">Rudra Devi</h2>
+                            <span class="profile-email">rudra.devi@gmail.com</span>
+                        </span>
+                    </a>
+                </div>
+             
+            </div>
+        </div>
+        <div class="sidebar__divider"></div>
+    </nav>
+
+    <!--=============== MAIN ===============-->
+    <main class="main container" id="main">
+            <!--=============== STATISTICS ===============-->
+        <h1 class="main__title">Welcome! Here’s your summary</h1>
+        <div class="main__grid">
+            <div class="stat__card">
+                <div class="stat__card__wrap">
+                    <h2 class="stat__card__title">Total Events</h2>
+                    <i class="ri-error-warning-line warning"></i>
+                </div>
+                <div class="stat__card__wrap">
+                    <h3 class="stat__card__amount">100,000</h3>
+                    <i class="ri-arrow-right-up-line down"></i>
+                    <span class="down">+0.5%</span>
+                </div> 
+            </div>
+       
+         <div class="stat__card">
+                <div class="stat__card__wrap">
+                    <h2 class="stat__card__title">Active Speakers</h2>
+                    <i class="ri-error-warning-line warning"></i>
+                </div>
+                <div class="stat__card__wrap">
+                    <h3 class="stat__card__amount">25</h3>
+                    <i class="ri-arrow-right-down-line up"></i>
+                    <span class="up">-0.5%</span>
+                </div> 
+            </div>
+
+            <div class="stat__card">
+                <div class="stat__card__wrap">
+                    <h2 class="stat__card__title">Total Registrations</h2>
+                    <i class="ri-error-warning-line warning"></i>
+                </div>
+                <div class="stat__card__wrap">
+                    <h3 class="stat__card__amount">300</h3>
+                    <i class="ri-arrow-right-up-line down"></i>
+                    <span class="down">+0.5%</span>
+                </div> 
+            </div>
+
+            <div class="stat__card">
+                <div class="stat__card__wrap">
+                    <h2 class="stat__card__title">Total Revenue</h2>
+                    <i class="ri-error-warning-line warning"></i>
+                </div>
+                <div class="stat__card__wrap">
+                    <h3 class="stat__card__amount">$500,000</h3>
+                    <i class="ri-arrow-right-up-line down"></i>
+                    <span class="down">+0.5%</span>
+                </div> 
+            </div>
+
+        </div>
+ <!--=============== CHARTS ===============-->
+
+ <h1 class="main-title top">Event Registrations per month</h1>
+ <div class="chart__container">
+    <div class="main__chart" >
+        <canvas id="myBarChart"></canvas>
+     </div>
+      <section class="swiper-section">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="slide-content">
+                        <img src="./assets/img/slide1.svg" alt="Slide 1" class="slide-image"/>
+                        <div class="slide-text">
+                            <h2 class="slide__title">Latest News & Updates</h2>
+                            <p class="slide__desc">Turpis interdum nunc varius ornare dignissim pretium. Massa ornare quis aliquet sed vitae. Sed velit nisi, fermentum erat. Fringilla purus, erat fringilla tincidunt quisque non. Pellentesque in ut tellus.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slide-content">
+                        <img src="./assets/img/slide2.png" alt="Slide 2" class="slide-image"/>
+                        <div class="slide-text">
+                            <h2 class="slide__title">Latest News & Updates</h2>
+                            <p class="slide__desc">Turpis interdum nunc varius ornare dignissim pretium. Massa ornare quis aliquet sed vitae. Sed velit nisi, fermentum erat. Fringilla purus, erat fringilla tincidunt quisque non. Pellentesque in ut tellus.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slide-content">
+                        <img src="./assets/img/slide3.png" alt="Slide 3" class="slide-image"/>
+                        <div class="slide-text">
+                            <h2 class="slide__title">Latest News & Updates</h2>
+                            <p class="slide__desc">Turpis interdum nunc varius ornare dignissim pretium. Massa ornare quis aliquet sed vitae. Sed velit nisi, fermentum erat. Fringilla purus, erat fringilla tincidunt quisque non. Pellentesque in ut tellus.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="swiper-button-prev">
+                <i class="ri-arrow-left-s-line"></i>
+            </div>
+            <div class="swiper-button-next">
+                <i class="ri-arrow-right-s-line"></i>
+            </div>
+            
+
+            <div class="swiper-pagination"></div>
+        </div>
+    </section> 
+  
+ </div>
+ <section class="desktop__section">   
+         <h2  class="main-title">Events History</h2>
+    <div class="controls__desktop">
+       <div  class="controls__desktop">
+        <div class="search-container">
+            <input type="text" id="search-input"  class="search-input"  placeholder="Search.....">
+            <i class="ri-search-line"></i> 
+        </div>
+        <div class="select-container ">
+        <select id="date-filter">
+            <option value="">Date</option>
+        </select>
+        <i class="ri-arrow-down-s-line"></i> 
+    </div>
+        <div class="select-container  ">
+        <select id="status-filter">
+            <option value="">Status</option>
+            <option value="Completed">Completed</option>
+            <option value="In progress">In Progress</option>
+        </select>
+        <i class="ri-arrow-down-s-line"></i> 
+    </div>
+        <div class="select-container ">
+        <select id="name-filter">
+            <option value="">Name</option>
+        </select>
+        <i class="ri-arrow-down-s-line"></i> 
+
+    </div>
+    <h2 class="main__display-title"></h2>
+</div>
+    <div class="sort-flex"> 
+        <h3 class="main__display">Sort:</h3>
+    <div class="select-container" >
+        <select >
+            <option value="">Most Recents</option>
+        </select>
+        <i class="ri-arrow-down-s-line"></i> 
+    </div>  
+      <div class="action">
+          <i class="ri-more-2-line"></i> 
+      </div>
+      <div class="action">
+          <i class="ri-upload-line"></i>
+          <span>Export</span>
+      </div> 
+    </div>  
+      
+     
+    
+    </div>
+
+
+
+<div class="table__container">
+    <table id="desktop-table ">
+        <thead>
+            <tr>
+                <th>Event Name</th>
+                <th>Speaker</th>
+                <th>Date</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+          
+        </tbody>
+    </table>
+</div>
+   
+
+</section>
+    </main>
+     
+
+    <section class="mobile__section">
+     
+        <div class="controls">
+            <h2  class="main-title">Events History</h2>
+            <div class="search-container">
+                <input type="text" id="search-input-mobile" class="search-input" placeholder="Search.....">
+                <i class="ri-search-line"></i> 
+            </div>
+            <div class="select-container ">
+            <select id="date-filter-mobile">
+                <option value="">Date</option>
+            </select>
+            <i class="ri-arrow-down-s-line"></i> 
+        </div>
+            <div class="select-container ">
+            <select id="status-filter-mobile">
+                <option value="">Status</option>
+                <option value="Completed">Completed</option>
+                <option value="In progress">In Progress</option>
+            </select>
+            <i class="ri-arrow-down-s-line"></i> 
+        </div>
+            <div class="select-container ">
+            <select id="name-filter-mobile">
+                <option value="">Name</option>
+            </select>
+            <i class="ri-arrow-down-s-line"></i> 
+
+        </div>
+
+    <h2  class="main-title">Displaying 100 results</h2>
+    <div class="control__recent">
+      <div> <h3 class="main__title">Sort:</h3></div>  
+        <div class="select-container"  style="width:50% ">
+            <select >
+                <option value="">Most Recents</option>
+            </select>
+            <i class="ri-arrow-down-s-line"></i> 
+        </div>        
+        </div>
+
+        <div class="control__recent">
+            <div class="action">
+                <i class="ri-more-2-line"></i> 
+            </div>
+            <div class="action">
+                <i class="ri-upload-line"></i>
+                <span class="main__title">Export</span>
+            </div>
+    </div>
+</div>
+    
+        <div class="mobile-wrapper">
+            <h3>Event Name</h3>
+            <h3>Status</h3>
+          </div>
+        <div id="mobile-list">
+          
+        </div>
+    
+    </section>
+    <div class="pagination-wrapper container">
+        <nav class="pagination-container">
+            <div class="pagination-button" id="prev-button" aria-label="Previous page" title="Previous page">
+                <i class="ri-arrow-left-s-line"></i>
+            </div>
+            <div id="pagination-numbers">
+            </div>
+            <div class="pagination-button" id="next-button" aria-label="Next page" title="Next page">
+                <i class="ri-arrow-right-s-line"></i>
+            </div>
+        </nav>
+        <div class="sort-flex">
+            <h3 class="main__display">Show:</h3>
+            <div class="select-container" >
+               
+                <select id="row-selector">
+                    <option value="5">5 rows</option>
+                    <option value="10">10 rows</option>
+                    <option value="15">15 rows</option>
+                  </select>
+                  <i class="ri-arrow-down-s-line"></i> 
+            </div>
+        </div>
+        </div>
+
+    <div id="eventModal" class="eventModal modal">
+        <div class="modal-content">
+            <div class="modal-wrap">
+            <div class="modal-name">
+            <h2 id="modalEventName"></h2>
+            <i class="ri-close-circle-line close-modal"></i>
+        </div>
+        <p  class="eventdate"></p>
+          <p  class="modal-description">Event Description</p>
+    <img  src="./assets/img/group.svg"/>
+      <p   class="modal-description">3 Guest Speakers: Speaker name A, Speaker name B, Speaker name C.
+         300 Attendees</p>
+        </div>
+        <div class="modal-btn">
+            <button class="btn edit">Edit</button>
+            <button class="btn delete">Delete</button>
+            <button class="btn mark">Mark As Completed</button>
+        </div>
+    </div>
+      </div>
+
+      
+        <nav class="bottom-nav" id="bottom-nav">
+            <a href="#" class="bottom-nav__link active-link-bottom">
+                <i class="ri-home-line"></i>
+                <span>Home</span>
+            </a>
+            <a href="#" class="bottom-nav__link">
+                <i class="ri-calendar-event-line"></i>
+                <span>Events</span>
+            </a>
+            <a href="#" class="bottom-nav__link">
+                <i class="ri-speak-line"></i>
+                <span>Speaker</span>
+            </a>
+            <a href="#" class="bottom-nav__link">
+                <i class="ri-file-list-3-line"></i>
+                <span>Reports</span>
+            </a>
+            <a href="#" class="bottom-nav__link">
+                <i class="ri-user-6-line"></i>
+                <span>Profile</span>
+            </a>
+        </nav>
+     
+    <!--=============== MAIN JS ===============-->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
