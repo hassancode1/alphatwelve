@@ -49,6 +49,7 @@ if (selectedTheme) {
 }
 
 themeSwitch.addEventListener('change', () => {
+    console.log(currentThemeColor)
     document.body.classList.toggle(darkTheme)
     localStorage.setItem('selected-theme', getCurrentTheme())
     if (getCurrentTheme() === 'dark') {
@@ -105,11 +106,35 @@ const myBarChart  =new Chart(ctx, {
       }]
     },
     options: {
-      scales: {
-        y: {
-          beginAtZero: true
-        }
-      },
+        scales: {
+            y: {
+              beginAtZero: true,
+              ticks: {
+                stepSize: 400 
+            },
+            grid: {
+                color: function(context) {
+                    if (context.tick.value === 1200) {
+                        return '';
+                    }
+                    return currentThemeColor;
+                }
+            },
+              border: {
+                display: false  ,
+                dash: [3, 3],
+            }, 
+            },
+            x: {
+              border: {
+                display: false ,
+                dash: [3, 3],
+            }, 
+            grid:{
+                color:currentThemeColor
+            }
+            }
+          },
       plugins: {
                 legend: {
                         display: false
@@ -118,8 +143,16 @@ const myBarChart  =new Chart(ctx, {
     }
   });
 const updateChartColors = () => {
+    myBarChart.options.scales.x.grid.color = currentThemeColor;
+    myBarChart.options.scales.y.grid.color = currentThemeColor;
     myBarChart.options.scales.x.ticks.color = currentThemeColor
     myBarChart.options.scales.y.ticks.color = currentThemeColor
+    myBarChart.options.scales.y.grid.color = function(context) {
+        if (context.tick.value === 1200) {
+            return 'transparent';
+        }
+        return currentThemeColor;
+    };
     
     const labels = document.querySelectorAll('label');
     labels.forEach(label => {
@@ -202,7 +235,6 @@ const darkThemeColors = {
 
 function getStatusColorDesktop(status) {
     const isDarkMode = document.body.classList.contains(darkTheme);
-    console.log(isDarkMode)
     const colors = isDarkMode ? darkThemeColors : lightThemeColors;
     switch(status.toLowerCase()) {
         case 'in progress':
@@ -217,30 +249,44 @@ function getStatusColorDesktop(status) {
 
 function populateNameFilter() {
     const nameFilter = document.getElementById('name-filter');
-    const nameFilterMoble = document.getElementById('name-filter-mobile');
-    const uniqueNames = [...new Set(events.map(event => event.name))]; 
+    const nameFilterMobile = document.getElementById('name-filter-mobile');
+    const uniqueNames = [...new Set(events.map(event => event.name))];
+
+    nameFilter.innerHTML = '<option value="">Names</option>';
+    nameFilterMobile.innerHTML = '<option value="">Names</option>';
 
     uniqueNames.forEach(name => {
-        const option = document.createElement('option');
-        option.value = name;
-        option.textContent = name;
-        nameFilter.appendChild(option);
-        nameFilterMoble.appendChild(option);
+
+        const desktopOption = document.createElement('option');
+        desktopOption.value = name;
+        desktopOption.textContent = name;
+        nameFilter.appendChild(desktopOption);
+
+        const mobileOption = document.createElement('option');
+        mobileOption.value = name;
+        mobileOption.textContent = name;
+        nameFilterMobile.appendChild(mobileOption.cloneNode(true));
     });
 }
 
 function populateDateFilters() {
-    const DateFilter = document.getElementById('date-filter');
-    const DateFilterMobile = document.getElementById('date-filter-mobile');
+    const dateFilter = document.getElementById('date-filter');
+    const dateFilterMobile = document.getElementById('date-filter-mobile');
 
-    const dates = [...events.map(event => event.date)]; 
-    
+    dateFilter.innerHTML = '<option value="">All Dates</option>';
+    dateFilterMobile.innerHTML = '<option value="">All Dates</option>';
+    const dates = [...new Set(events.map(event => event.date))].sort();
+
     dates.forEach(date => {
-        const option = document.createElement('option');
-        option.value = date;
-        option.textContent = new Date(date).toLocaleDateString();
-        DateFilter.appendChild(option);
-        DateFilterMobile.appendChild(option);
+        const desktopOption = document.createElement('option');
+        desktopOption.value = date;
+        desktopOption.textContent = new Date(date).toLocaleDateString();
+        dateFilter.appendChild(desktopOption);
+
+        const mobileOption = document.createElement('option');
+        mobileOption.value = date;
+        mobileOption.textContent = new Date(date).toLocaleDateString();
+        dateFilterMobile.appendChild(mobileOption.cloneNode(true));
     });
 }
 let currentPage = 1;
